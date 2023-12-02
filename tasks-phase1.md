@@ -258,6 +258,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 13. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
 
     ***place the screenshot of notebook here***
+    ![img.png](doc/figures/notebook.png)
    
 14. Find and correct the error in spark-job.py
 
