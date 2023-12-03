@@ -56,6 +56,9 @@ resource "google_notebooks_instance" "tbd_notebook" {
     repository = var.ai_notebook_image_repository
     tag        = var.ai_notebook_image_tag
   }
+  shielded_instance_config {
+    enable_secure_boot = true
+  }
   network = var.network
   subnet  = var.subnet
   ## change it to break the checkov during the labs
