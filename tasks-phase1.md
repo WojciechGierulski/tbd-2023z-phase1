@@ -284,11 +284,13 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
    
 13. Find and correct the error in spark-job.py
 
-    While trying to execute this program the error ocured:
+    On gcp console under dataproc/tasks we found failed tasks.
+    ![img.png](doc/figures/task13-tasks.png)
 
-    ![img.png](doc/figures/zad13.png)
+    After clicking on one of the failed tasks, logs can be viewed:
+    ![img.png](doc/figures/task13-error.png)
 
-    The problem was that the value of DATA_BUCKET variable was wrong. After we changed it into "gs://tbd-2023z-303748-data/data/shakespeare/" it started to work normally.
+    The problem was that the value of DATA_BUCKET variable in spark-job.py was wrong. After we changed it into "gs://tbd-2023z-303748-data/data/shakespeare/" it started to work normally.
     
     ***describe the cause and how to find the error***
 
