@@ -298,8 +298,11 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     ***place the link to the modified file and inserted terraform code***
 
     In main.tf file the code was changed. For vertex ai and dataproc the machine type was changed.
-    
+
     [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/12af0dc432184e5f81558a611223a46bb805d80d)
+
+    
+    ![img.png](doc/figures/15-1.png)
     
     2. Add support for preemptible/spot instances in a Dataproc cluster
 
@@ -307,11 +310,20 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/620038eae9192b3db2f808c42f7fa5ba5135a41c)
     
+    
+    ![img.png](doc/figures/15-2-1.png)
+
+    ![img.png](doc/figures/15-2-2.png)
+    
+    ![img.png](doc/figures/15-2-3.png)
+    
     3. Perform additional hardening of Jupyterlab environment, i.e. disable sudo access and enable secure boot
     
     ***place the link to the modified file and inserted terraform code***
 
     [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/cc5d9d974e2807950f842d445856840df3125860)
+    
+    ![img.png](doc/figures/15-3.png)
     
     4. (Optional) Get access to Apache Spark WebUI
 
