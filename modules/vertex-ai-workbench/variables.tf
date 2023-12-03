@@ -35,5 +35,5 @@ variable "ai_notebook_image_tag" {
 }
 
 variable "machine_type" {
-    type = string
+  type = string
 }

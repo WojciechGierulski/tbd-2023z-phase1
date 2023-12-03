@@ -15,16 +15,16 @@ variable "ai_notebook_instance_owner" {
 }
 
 variable "dataproc_num_workers" {
-    type    = number
-    default = 2
+  type    = number
+  default = 2
 }
 
 variable "dataproc_machine_type" {
-    type    = string
-    default = "e2-standard-2"
+  type    = string
+  default = "e2-standard-2"
 }
 
 variable "notebook_machine_type" {
-    type    = string
-    default = "e2-standard-2"
+  type    = string
+  default = "e2-standard-2"
 }
