@@ -296,16 +296,23 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     1. Add support for arbitrary machine types and worker nodes for a Dataproc cluster and JupyterLab instance
 
     ***place the link to the modified file and inserted terraform code***
+
     In main.tf file the code was changed. For vertex ai and dataproc the machine type was changed.
+    
+    [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/12af0dc432184e5f81558a611223a46bb805d80d)
     
     2. Add support for preemptible/spot instances in a Dataproc cluster
 
     ***place the link to the modified file and inserted terraform code***
+
+    [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/620038eae9192b3db2f808c42f7fa5ba5135a41c)
     
     3. Perform additional hardening of Jupyterlab environment, i.e. disable sudo access and enable secure boot
     
     ***place the link to the modified file and inserted terraform code***
 
+    [link to modified file](https://github.com/bdg-tbd/tbd-2023z-phase1/commit/cc5d9d974e2807950f842d445856840df3125860)
+    
     4. (Optional) Get access to Apache Spark WebUI
 
     ***place the link to the modified file and inserted terraform code***
