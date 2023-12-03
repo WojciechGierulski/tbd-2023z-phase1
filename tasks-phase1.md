@@ -280,14 +280,17 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 12. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
 
     ***place the screenshot of notebook here***
+    ![img.png](doc/figures/notebook.png)
    
 13. Find and correct the error in spark-job.py
 
-    While trying to execute this program the error ocured:
+    On gcp console under dataproc/tasks we found failed tasks.
+    ![img.png](doc/figures/task13-tasks.png)
 
-    ![img.png](doc/figures/zad13.png)
+    After clicking on one of the failed tasks, logs can be viewed:
+    ![img.png](doc/figures/task13-error.png)
 
-    The problem was that the value of DATA_BUCKET variable was wrong. After we changed it into "gs://tbd-2023z-303748-data/data/shakespeare/" it started to work normally.
+    The problem was that the value of DATA_BUCKET variable in spark-job.py was wrong. After we changed it into "gs://tbd-2023z-303748-data/data/shakespeare/" it started to work normally.
     
     ***describe the cause and how to find the error***
 
@@ -296,14 +299,26 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     1. Add support for arbitrary machine types and worker nodes for a Dataproc cluster and JupyterLab instance
 
     ***place the link to the modified file and inserted terraform code***
+
+    [Commit with modified terraform code](https://github.com/WojciechGierulski/tbd-2023z-phase1/commit/6eae61fa9ac22207cb77269b551ec1334a760b40)
+
+    New variables were added to dataproc and notebook instance modules. They define notebook machine type, worker nodes number and dataproc machine type.  This variables are passed to dataproc and notebook modules during initialization in main.tf. Variables can be set in terraform apply command:
+
+    `terraform apply -var="xyz=123" ...`
     
-    3. Add support for preemptible/spot instances in a Dataproc cluster
+    2. Add support for preemptible/spot instances in a Dataproc cluster
 
     ***place the link to the modified file and inserted terraform code***
+
+    [Commit with modified terraform code](https://github.com/WojciechGierulski/tbd-2023z-phase1/commit/545b97766cd1847ef75d01a7d095664d4d63d326)
+
+    Preemptible config was added to dataproc module. Number of preemptible instances can be set through module variable. Default value is 0.
     
     3. Perform additional hardening of Jupyterlab environment, i.e. disable sudo access and enable secure boot
     
     ***place the link to the modified file and inserted terraform code***
+
+    [Commit with modified terraform code](https://github.com/WojciechGierulski/tbd-2023z-phase1/commit/04cd8ceae1b151b2fe1fd5008d65987f872e5897)
 
     4. (Optional) Get access to Apache Spark WebUI
 
