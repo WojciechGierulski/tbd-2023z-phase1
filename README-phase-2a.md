@@ -19,8 +19,10 @@ Worth to read:
 2. Authors:
 
    ***Enter your group nr***
+   * Wojciech Gierulski
+   * Jakub Płudowski
 
-   ***Link to forked repo***
+   ***[Link to forked repo](https://github.com/WojciechGierulski/tbd-2023z-phase1)***
 
 3. Replace your `main.tf` (in the root module) from the phase 1 with [main.tf](https://github.com/bdg-tbd/tbd-workshop-1/blob/v1.0.32/main.tf)
 at the same time changing each module `source` reference from the repo relative path to a github repo tag `v1.0.33` , e.g.:
