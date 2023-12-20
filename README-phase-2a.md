@@ -67,15 +67,31 @@ the running instance of your Vertex AI Workbench
 
 7. Explore files created by generator and describe them, including format, content, total size.
 
-   ***Files desccription***
+   Pod ścieżką tbd-2023z-303748-data/tpc-di w naszym Google Cloud Storage utworzyło się 217 plików. 203 z nich to pliki binarne FINWIRE osiągające objętość od 60 KB do 900KB. Oprócz nich są tam 2 pliki CSV (prospect.csv oraz hr.csv), 1 plik XML (customermgmtt.xml) oraz 11 plików TXT. Te pliki osiągają już rozmiary około 300 MB. Pliki te zawieraja dane, które będą zaczytywane w następnych krokach.
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
-   ***Your answer***
+   Program składa sie z dwóch głównych funkcji: get_session oraz process_files, która zawiera cztery podfunkcje. Funkcja get_session inicjalizuje sesje pysparkową i dla wszystkich baz danych [`digen`, `bronze`, `silver`, `gold`] tworzy baze danych na Hive. Funkcja ustawia baze digen na aktualnie używaną.
+   Funkcja process_files posiada cztery funkcje: get_stage_path, która zwraca specyficzną ścieżkę do Google Cloud Storage, save_df, która zapisuje dane typu DataFrame w formacie parquet, upload_files, która na podstawie rozszerzenia lub typu pliku ustawia delimiter i wgrywa dane z pliku na bloba oraz funkcję load_csv, która ma najdłuższą funkcjonalność i odpowiada za czytanie plików csv do zmiennych typu DataFrame. W zależności od metadanych pliku funkcja ta generuje Schema Dataframe'u za pomocą StructFields i typów zaimportowanych ze sparka. W trakcie ładowania program najpierw ustala wszystkie zależności za pomocą Ivy, a potem zaczytuje tabele. W naszym przypadku wystąpiło kilka ostrzeżeń, ale mimo to program załadował dane w całości bez błędów.
 
 9. Using SparkSQL answer: how many table were created in each layer?
 
    ***SparkSQL command and output***
+
+   ```python
+   database_namespace = spark.sql("show databases").collect()
+   databases = [x.namespace for x in database_namespace]
+   results = []
+   for layer in databases:
+      spark.sql(f"use {layer}")
+      results.append((layer, spark.sql("show tables").count()))
+   for name, number in results:
+      print(f"Layer {name} has {number} tables.")
+   
+   
+   ```
+
+   ![img.png](doc/figures/phase2a/tbd_2_9.png)
 
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
