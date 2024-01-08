@@ -120,6 +120,33 @@ the running instance of your Vertex AI Workbench
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
    ***Code and description of your tests***
+   * **Test 1**
+      ```sql
+      select 
+         *
+      from {{ ref('dim_broker') }} 
+      where first_name is null or last_name is null
+      ```
+      Test na to czy są w tabeli są obecne dane pozwalające w łatwy sposób zidentyfikować osobę (imię, nazwisko). Identyfikacja po sztucznym ID nie zawsze jest oczywista.
+   * **Test 2**
+      ```sql
+      select 
+         *
+      from {{ ref('dim_date') }} 
+      where DAY_OF_WEEK_DESC not in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')
+      ```
+      Test na to czy koluman day_of_week zawiera poprawne wartości.
+   * **Test 3**
+      ```sql
+      select 
+         *
+      from {{ ref('dim_security') }} 
+      where status not in ('Active', 'Inactive')
+      ```
+      Test na to czy kolumna status zawiera poprawne wartości.
+
+   ![img.png](doc/figures/phase2a/dbt_tests.png)
+
 
 11. In main.tf update
    ```
