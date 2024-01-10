@@ -29,5 +29,16 @@ in profiles.yml.
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
+Z każdego pliku z logami zgraliśmy czasy wykonania każdego poszczególnego zadania. Niektóre z nich wykonywały się krócej a niektóre dłużej. Dla każdego zadania narysowano wyresy opisujące czas wykonania każdego zadania. Oprócz tego wykreśliliśmy wykres opisujący średni czas działania w zależności od liczby instancji. 
+
+![img.png](doc/figures/step1.png)
+![img.png](doc/figures/step2.png)
+![img.png](doc/figures/step3.png)
+![img.png](doc/figures/step4.png)
+![img.png](doc/figures/step5.png)
+![img.png](doc/figures/wykres_czas.png)
+
+Jak widać na wykresach kształt zależności przypomina coś w stylu funkcji kwadratowej z minimum dla wartości nr_of_instances równej 4. Oznacza to, że gdy instancji było 5 to kod wykonywał się dłużej. Powodów takiego zachowania może być kilka ale przede wszsytkim najprawdopodobniej mamy za mało danych dla 5 klastrów i taki podział przestaje być optymalny. Kolejne instancje executora mogą zacząć konkurować o zasoby, może dojść do dużej fragmentacji danych. Jeśli isntancji jest za dużo to mogą one też po prostu działać nieefektywnie. Ważne jest aby zadbać o równowagę pomiędzy ilością zasobów a obciążeniem przetwarzania executorów. Dodatkowo warto zwrócić uwagę na ostrzeżenia dotyczące Hive. Opisują one, że niektóre parametry konfiguracji mogą być domyślne co może nie być optymalne. Niepokojąco też wyglądają ostrzeżenia o dodawaniu wielokrotnie tych samych plików jar do cache'a.
+
 
    
