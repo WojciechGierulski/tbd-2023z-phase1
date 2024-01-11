@@ -38,7 +38,11 @@ Z każdego pliku z logami zgraliśmy czasy wykonania każdego poszczególnego za
 ![img.png](doc/figures/step5.png)
 ![img.png](doc/figures/wykres_czas.png)
 
-Jak widać na wykresach kształt zależności przypomina coś w stylu funkcji kwadratowej z minimum dla wartości nr_of_instances równej 4. Oznacza to, że gdy instancji było 5 to kod wykonywał się dłużej. Powodów takiego zachowania może być kilka ale przede wszsytkim najprawdopodobniej mamy za mało danych dla 5 klastrów i taki podział przestaje być optymalny. Kolejne instancje executora mogą zacząć konkurować o zasoby, może dojść do dużej fragmentacji danych. Jeśli isntancji jest za dużo to mogą one też po prostu działać nieefektywnie. Ważne jest aby zadbać o równowagę pomiędzy ilością zasobów a obciążeniem przetwarzania executorów. Dodatkowo warto zwrócić uwagę na ostrzeżenia dotyczące Hive. Opisują one, że niektóre parametry konfiguracji mogą być domyślne co może nie być optymalne. Niepokojąco też wyglądają ostrzeżenia o dodawaniu wielokrotnie tych samych plików jar do cache'a.
+Jak widać na wykresach kształt zależności przypomina coś w stylu funkcji kwadratowej z minimum dla wartości nr_of_instances równej 4. Oznacza to, że gdy instancji było 5 to kod wykonywał się dłużej niż dla 4. Powodów takiego zachowania może być kilka ale przede wszsytkim najprawdopodobniej mamy za mało danych dla 5 klastrów i taki podział przestaje być optymalny. Kolejne instancje executora mogą zacząć konkurować o zasoby, może dojść do dużej fragmentacji danych. Jeśli instancji jest za dużo to mogą one też po prostu działać nieefektywnie. Ważne jest aby zadbać o równowagę pomiędzy ilością zasobów a obciążeniem przetwarzania executorów. 
+
+Inną obserwacją jest to, że największy wzrost wydajności przy zwiększaniu liczby executorów osiągany jest dla tych zadań, które są najdłuższe. Przy krótkich zadaniach wzrost wydajności jest mniejszy. Może być to spowodowane tym, że w przypadku krótkich zadań czas inicjalizacji zadania dominuje nad czasem obliczeń właściwych, więc zwiększanie liczby executorów nie przspieszy tego procesu.
+
+Dodatkowo warto zwrócić uwagę na ostrzeżenia dotyczące Hive. Opisują one, że niektóre parametry konfiguracji mogą być domyślne co może nie być optymalne. Niepokojąco też wyglądają ostrzeżenia o dodawaniu wielokrotnie tych samych plików jar do cache'a.
 
 
    
