@@ -18,11 +18,11 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
 4. Select your project and set budget alerts on 5%, 25%, 50%, 80% of 50$ (in cloud console -> billing -> budget & alerts -> create buget; unclick discounts and promotions&others while creating budget).
 
-  ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/budget.png)
+  ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/budget.png)
 
 4. From avaialble Github Actions select and run destroy on main branch.
 
-![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/destroy-main.png)
+![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/destroy-main.png)
 
 5. Create new git branch and add two resources in ```/modules/data-pipeline/main.tf```:
     1. resource "google_storage_bucket" "tbd-data-bucket" -> the bucket to store data. Set the following properties:
@@ -66,7 +66,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     Create PR from this branch to **YOUR** master and merge it to make new release. 
     
     ***place the screenshot from GA after succesfull application of release with this changes***
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/build.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/build.png)
     
 
 6. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
@@ -96,14 +96,14 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     
 
     `terraform graph | dot -Tsvg > graph.svg`
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/graph.svg)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/graph.svg)
    
 7. Reach YARN UI
    
    ***place the port and the screenshot of YARN UI here***
 
     **port: 8088**
-   ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/yarn.png)
+   ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/yarn.png)
    
 8. Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
@@ -113,7 +113,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
   
     ***place your diagram here***
 
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/drawio/architecture.drawio.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/drawio/architecture.drawio.png)
 
     It is necessary to specify the host for the driver because worker nodes need to know where to listen for incoming tasks.
 
@@ -240,7 +240,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     * [VertexAI Pricing](https://cloud.google.com/vertex-ai/pricing#instances)
     * [Dataproc pricing](https://cloud.google.com/dataproc/pricing)
 
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/estimate.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/estimate.png)
 
     ***what are the options for cost optimization?***
 
@@ -270,7 +270,7 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     pludy99@cloudshell:~/tbd-2023z-phase1 (tbd-2023z-303748)$ 
     ```
 
-     ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/zad12.png)
+     ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/zad12.png)
    
     ***why does ORC not require a table schema?***
 
@@ -280,15 +280,15 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 12. Start an interactive session from Vertex AI workbench (steps 7-9 in README):
 
     ***place the screenshot of notebook here***
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/notebook.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/notebook.png)
    
 13. Find and correct the error in spark-job.py
 
     On gcp console under dataproc/tasks we found failed tasks.
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/task13-tasks.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/task13-tasks.png)
 
     After clicking on one of the failed tasks, logs can be viewed:
-    ![img.png](https://github.com/WojciechGierulski/tbd-2023z-phase1/tree/master/doc/figures/task13-error.png)
+    ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/task13-error.png)
 
     The problem was that the value of DATA_BUCKET variable in spark-job.py was wrong. After we changed it into "gs://tbd-2023z-303748-data/data/shakespeare/" it started to work normally.
     
