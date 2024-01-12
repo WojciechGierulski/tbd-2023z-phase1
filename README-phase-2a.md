@@ -49,6 +49,8 @@ the running instance of your Vertex AI Workbench
 
    a)first, fork https://github.com/mwiewior/tbd-tpc-di.git to your github organization.
 
+   [fork url](https://github.com/WojciechGierulski/tbd-tpc-di)
+
    b)create new branch (e.g. 'notebook') in your fork of tbd-tpc-di and modify profiles.yaml by commenting following lines:
    ```  
         #"spark.driver.port": "30000"
@@ -63,7 +65,7 @@ the running instance of your Vertex AI Workbench
  
 
 
-6. Access Vertex AI Workbench and run cell by cell notebook `tpc-di-setup.ipynb`.
+7. Access Vertex AI Workbench and run cell by cell notebook `tpc-di-setup.ipynb`.
 
     a) in the first cell of the notebook replace: `%env DATA_BUCKET=tbd-2023z-9910-data` with your data bucket.
 
@@ -115,7 +117,7 @@ the running instance of your Vertex AI Workbench
    
    ```
 
-   ![img.png](doc/figures/phase2a/tbd_2_9.png)
+   ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/phase2a/tbd_2_9.png)
 
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
@@ -145,7 +147,7 @@ the running instance of your Vertex AI Workbench
       ```
       Test na to czy kolumna status zawiera poprawne wartości.
 
-   ![img.png](doc/figures/phase2a/dbt_tests.png)
+   ![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/phase2a/dbt_tests.png)
 
 
 11. In main.tf update
@@ -158,4 +160,4 @@ the running instance of your Vertex AI Workbench
 12. Redeploy infrastructure and check if the DAG finished with no errors:
 
 ***The screenshot of Apache Aiflow UI***
-![img.png](doc/figures/phase2a/airflow-2a.png)
+![img.png](https://raw.githubusercontent.com/WojciechGierulski/tbd-2023z-phase1/master/doc/figures/phase2a/airflow-2a.png)
